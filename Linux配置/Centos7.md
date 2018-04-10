@@ -1,4 +1,4 @@
-# vps上centos7安装后配置
+# VPS上centos7安装后配置
 
 ### 用户管理
 
@@ -55,7 +55,7 @@ sudo yum --enablerepo=elrepo-kernel install kernel-ml -y
 rpm -qa | grep kernel # 查看是否安装成功
 sudo egrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \' # 查看内核启动顺序
 grub2-set-default 0  # default 0 表示第一个内核设置为默认运行, 选择最新内核就对了
-sudo shutdown -r now
+sudo shutdown -r now # 重启
 uname -r # 查看是否安装成功
 ```
 
@@ -158,6 +158,7 @@ sudo yum install perl-ExtUtils-MakeMaker libcurl-devel
 ### git
 
 ```bash
+# 安装
 sudo yum install git
 # 配置git
 git config --global user.name "zzzzer"
@@ -169,8 +170,9 @@ ssh-keygen -t rsa -C "zzzzer91@gmail.com"
 ## pyenv
 
 ``` bash
-# 安装配置
+# 安装
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+# 配置
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bashrc
@@ -242,7 +244,7 @@ set softtabstop=4  # 按一次退格键会删除4个空格，只对tab按出来�
 ```shell
 # 1.安装相关程序
 sudo yum install fontconfig mkfontscale 
-# 把windows中字体copy到/usr/share/fonts目录下
+# 2.把windows中字体copy到/usr/share/fonts目录下
 # 3.然后执行
 sudo mkfontscale
 sudo mkfontdir

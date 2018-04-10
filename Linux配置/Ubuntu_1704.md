@@ -1,7 +1,5 @@
 ## Ubuntu17.04安装后配置
 
-
-
 ### 删除不常用软件
 
 ```bash
@@ -16,8 +14,6 @@ sudo apt purge unity-webapps-common
 sudo apt purge firefox firefox-locale-en unity-scope-firefoxbookmarks firefox-locale-zh-hans
 ```
 
-
-
 ### dns修改
 
 ```bash
@@ -30,15 +26,11 @@ sudo resolvconf -u
 vi /etc/resolv.conf
 ```
 
-
-
 ### intel key
 
 ```bash
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 611B903CAB97EA77
 ```
-
-
 
 ### ubuntu使用windows字体
 
@@ -51,8 +43,6 @@ sudo mkfontdir
 sudo fc-cache -fv
 ```
 
-
-
 ### git
 
 ```bash
@@ -63,8 +53,6 @@ git config --global user.email "zzzzer91@gmail.com"
 # 生成ssh密钥
 ssh-keygen -t rsa -C "zzzzer91@gmail.com"
 ```
-
-
 
 ### vim
 
@@ -77,8 +65,6 @@ git clone https://github.com/powerline/fonts.git --depth=1
 #进入vim后, 执行PluginInstall
 ```
 
-
-
 ### Python3必须依赖
 
 ```bash
@@ -89,8 +75,6 @@ sudo apt install build-essential libbz2-dev libncurses-dev libreadline-dev libgd
 sudo apt install tk-dev
 sudo apt-get install exuberant-ctags
 ```
-
-
 
 ### pyenv
 
@@ -109,8 +93,6 @@ cd $(pyenv root)
 git pull
 ```
 
-
-
 ### pip必装
 
 ```bash
@@ -123,8 +105,6 @@ pip install pymongo # mongodb驱动
 pip install pipenv # 包虚拟环境
 ```
 
-
-
 ### Shadowsocks-qt5
 
 ```bash
@@ -133,16 +113,12 @@ sudo apt update
 sudo apt install shadowsocks-qt5
 ```
 
-
-
 ### chrome
 
 ```bash
 # 创建bash脚本ssc, 输入如下内容, 并放入/usr/local/bin, 方便使用ss
 google-chrome --proxy-server="socks://127.0.0.1:1080"
 ```
-
-
 
 ### typora
 
@@ -156,15 +132,11 @@ sudo apt-get update
 sudo apt-get install typora
 ```
 
-
-
 ### 美化工具
 
 ```bash
 sudo apt install unity-tweak-tool
 ```
-
-
 
 ### mongodb
 
@@ -183,8 +155,6 @@ dbpath=/home/zzzzer/Documents/data/mongodb/data
 ./mongorestore ~/all 
 ```
 
-
-
 ### shell
 
 - 缩短shell中的目录名
@@ -196,8 +166,6 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 # 这行中小写的w改成大写的
 source .bash # 应用修改
 ```
-
-
 
 ### fish
 
@@ -214,8 +182,6 @@ sudo apt-get install fish
 ```bash
 chsh -s /usr/bin/fish
 ```
-
-
 
 ### jupyter notebook
 - 生成配置文件

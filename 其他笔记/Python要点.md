@@ -1,5 +1,3 @@
-# Python要点
-
 ### Python基本数据类型方法
 
 - list(列表)
