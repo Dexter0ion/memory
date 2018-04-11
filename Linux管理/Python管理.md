@@ -44,7 +44,9 @@ git pull
 pip list 
 # 列出所有过期库
 pip list --outdate 
-# 安装该库
+# 只下载该库
+pip download <PACKAGE_NAME> 
+# 下载安装该库
 pip install <PACKAGE_NAME> 
 # 升级该库
 pip install --upgrade <PACKAGE_NAME> 

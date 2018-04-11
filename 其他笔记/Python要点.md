@@ -5,12 +5,53 @@
 ```python
 # 将元素x添加到列表lst尾部
 lst.append(x)
+# 在下标index处添加元素x, 原来该位置元素及之后元素后移
+lst.insert(index, x)
+# 将列表L中元素添加到列表lst末尾, 原地
+lst.extend(L)
+# 删除并返回下标为index(默认-1)到元素
+lst.pop(index)
+# 删除列表中第一个值为x的元素, 其之后的元素前移
+lst.remove(x)
+# 清空列表, 但保留列表对象
+lst.clear()
+# 返回第一个值为x的元素下标, 不存在则抛出异常
+lst.index(x)
+# 返回元素x在列表中出现的次数
+lst.count(x)
+# 逆转列表, 原地
+lst.reverse()
+# 根据key排序, 可打开逆序开关, 原地
+lst.sort(key=None, reverse=False)
+# 返回列表的浅复制
+lst.copy()
 ```
 
 - dict(字典)
 
 ```python
-
+# 返回一个元祖(键, 值)构成的列表
+d.items()
+# 返回字典的键构成的列表
+d.keys()
+# 返回字典的值构成的列表
+d.values()
+# 返回指定键的值, 不存在则返回default的值
+d.get(key, default=None)
+# 返回指定键的值, 不存在则添加键, 值为default
+d.setdefault(key, default=None)
+# 将iterable中的元素做键, 值都为default, 会覆盖已有的键
+d.fromkeys(iterbale, default=None)
+# 把字典dict2中的键值更新到字典d中, 会覆盖已有的键
+d.update(dict2)
+# 清空字典, 但会保留字典对象
+d.clear()
+# 返回一个字典的浅拷贝
+d.copy()
+# 弹出指定元素, 并返回值, 如指定default, 则存不存在都返回default, 否则不存在抛出异常
+d.pop(k, default=None)
+# 弹出字典末尾元素, 返回一个二元组
+d.popitem()
 ```
 
 - str(字符串)
@@ -83,3 +124,46 @@ Class Implicit(MyBaseClass):
         super().__init__(value*2)
 ```
 
+- 使用 `+`, `*`, 内置函数sorted(), reversed(), 对列表进行操作都会返回新到列表, 但使用`+=`和列表的方法操作则不会.
+- Python采用基于值的内存管理模式, Python变量中并不直接存放值, 而是存放值到引用. 所以在Python中修改变量值的操作, 并不是直接修改变量的值, 而是修改了变量指向的内存地址(引用), 如`a=a+9或a+= 6`, Python解释器限读取变量a原来的值, 然后将其加6, 并将结果存放于内存中, 最后将变量a指向该内存. 如果不同变量赋值为相同值, 这个值在内存中只有一份, 多个变量指向这个内存. **注意: **不同类型的变量到管理方式可能会不同.
+- 把两个列表变成一个字典可以:
+
+```python
+keys = ['a', 'b', 'c', 'd']
+values = [1, 2, 3, 4]
+d = dict(zip(keys, values))
+# 反转
+l = list(d.items())
+```
+
+- zip()函数生成到列表的长度是传入到最短列表成员长度, 并且返回一个迭代器.
+- 利用set()函数去掉列表, 元祖等其他可迭代对象中的重复元素, 返回一个集合, 集合只能包含不可变类型.
+- 凡是无法计算哈希值(调用hash()函数抛出异常)的对象, 都不是不可变类型.
+- 字典和集合的`in`操作比列表快很多, 因为Python字典和集合都用hash表来存储元素.
+- 逻辑运算符`and`和`or`与C语言中一样, 具有短路特性.
+- 函数参数, 不可变参数通过值传递, 可变参数通过引用传递(对其任何修改会影响实参). 
+- 可以用`函数名._defaults`随时查看函数所有默认值参数的当前值.
+- 使字符串中连续多个不等长空格变为一个空格的方法:
+
+```python
+s = 'aaa     bbb c     ddd'
+' '.join(s.split())
+```
+
+- `isinstance`和type的区别在于:
+
+```python
+# 假设B继承于A
+
+# type()不会认为子类是父类的一种类型
+type(B()) == A # False
+# isinstance()认为子类是父类的一种类型
+isinstance(B(), A) # True
+```
+
+- 列表中元素必须全部是`str`类型, 才能用`join()`方法.
+- 列表操作: 令`a = [1, 2, 3, 4`, 可以使`a[:2] = 5`, 结果为`[5, 3, 4]`.
+- `a = 1, 2, 3`相当于`a = (1, 2, 3)`, 但不建议这么写
+- 解包: `lst = [1, 2, 3, 4, 5]`, 令`a, *b, c = lst`, 结果为`a = 1; b = [2, 3, 4]; c = 5`. 列表可以换成元组, 但`b`还会是`list`类型.
+- 字典操作: `dict(A=1, B='foo')`, 结果为`{'A':1, 'B':'foo'}`
+- `[.122, 1.]`, 结果为`[0.122, 1.0]`.
