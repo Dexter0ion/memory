@@ -18,8 +18,10 @@ sudo pacman -Syy # 两个yy代表强制刷新，即使已经是最新的
 ### 卸载不需要软件
 
 ```bash
+# 仅供参考
 # 删除指定软件包，及所有没有被其他已安装软件包使用的依赖关系(s)，及配置文件(n)
-sudo pacman -Rsn steam-manjaro libreoffice-fresh ms-office-online hplip firefox manjaro-settings-manager-knotifier octopi-notifier-frameworks manjaro-hello manjaro-documentation-en konversation thunderbird kget zsh cantata vlc skanlite inkscape
+sudo pacman -Rsn steam-manjaro libreoffice-fresh ms-office-online hplip firefox manjaro-settings-manager-knotifier octopi-notifier-frameworks manjaro-hello manjaro-documentation-en konversation thunderbird kget kfind filelight cantata vlc skanlite inkscape
+# vlc用mpv代替
 ```
 
 ### 更新系统

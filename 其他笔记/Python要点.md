@@ -44,32 +44,104 @@ d.setdefault(key, default=None)
 d.fromkeys(iterbale, default=None)
 # 把字典dict2中的键值更新到字典d中, 会覆盖已有的键
 d.update(dict2)
-# 清空字典, 但会保留字典对象
-d.clear()
-# 返回一个字典的浅拷贝
-d.copy()
 # 弹出指定元素, 并返回值, 如指定default, 则存不存在都返回default, 否则不存在抛出异常
 d.pop(k, default=None)
 # 弹出字典末尾元素, 返回一个二元组
 d.popitem()
+# 清空字典, 但会保留字典对象
+d.clear()
+# 返回一个字典的浅拷贝
+d.copy()
 ```
 
 - str(字符串)
 
 ```python
+"""查找"""
+# 返回子串sub在s中出现的次数, 可指定范围
+s.count(sub, start=None, end=None)
+# 返回子串sub的索引, 找不到返回-1
+s.find(sub, start=None, end=None)
+# 从右侧开始查找
+s.rfind(sub, start=None, end=None)
+# 与find一样, 只不过找不到会抛出异常
+s.index(sub, start=None, end=None)
+# 从右侧开始查找
+s.rindex(sub, start=None, end=None)
 
-```
+"""替换"""
+# 从左到有, count指定最大次数
+s.replace(old, new, count=None)
+# 把字符串中的制表符转换为指定长度(默认8)的空格
+s.expandtabs(tabsize=8)
 
-- int(整数)
+"""删减"""
+# 去除字符串两边的空白字符(空白字符由string.whitespace常量定义), 或删除指定字符
+s.strip()
+# 只删左边
+s.lstrip()
+# 只删右边
+s.rstrip()
 
-```python
+"""填充"""
+# 居中对齐, width指定长度, fillchar指定填充字符, 不指定默认空白字符
+s.center(width, fillchar)
+# 左对齐
+s.ljust(width, fillchar)
+# 右对齐
+s.rjust(width, fillchar)
+# 右对齐, 前面用零填充
+s.zfill(width)
 
-```
+"""分切"""
+# 根据sep切割字符串, maxsplit指定最大次数, 返回列表. 默认切割空格
+s.split(sep, maxsplit)
+# 根据行分割, keepends决定是否保留换行符
+s.splitlines(keepends)
+# 将字符串s切割成三部分: sep前, sep, sep后
+s.partition(sep)
+# 从右往左分割
+s.rpartition(sep)
 
-- float(浮点数)
+"""连接"""
+# 将可迭代对象(成员必须都是字符串, int也不行)连接成字符串, 成员之间填入s
+s.join(iterable)
 
-```python
+"""变形"""
+# 把字符串中所有字母转小写
+s.lower()
+# 把字符串中所有字母转大写
+s.upper()
+# 字符串首字母转大写, 必须是第一个字符
+s.capitalize()
+# 把字符串中所有字母大写转小写, 小写转大写
+s.swapcase()
+# 每个单词的第一个字母转换成大写
+s.title()
 
+"""判定"""
+# 是否都是数字或字母
+s.isalnum()
+# 是否都是字母
+s.isalpha()
+# 是否都是数字
+s.isdigit()
+# 如果包含字母, 是否都是小写
+s.islower()
+# 如果包含字母, 是否都是大写
+s.isupper()
+# 是否只包含空格
+s.isspace()
+# 是否是标题化的(首字母大小, 其他小写)
+s.istitle()
+# 字符串是否可以作为变量名
+s.isidentifer()
+# 字符串是否全部可打印, 包含不可打印字符(如转义字符), 返回False
+s.isprintable()
+
+"""编码"""
+# 编码成bytes
+s.encode(encoding='utf-8', errors='strict')
 ```
 
 ### Python常用魔法方法
@@ -113,7 +185,7 @@ def log(message, when=datetime.now()):
 def person(name, age, *, city='Beijing', job)
 ```
 
-- Python中有个内置变量`-`会存储上一次结果的值.
+- Python中有个内置变量`_`会存储上一次结果的值.
 - 把字符串切割成列表的小技巧: 如切割`s = '1, 2, 3, 4, 5'`, 逗号后面有空格, 直接`s.split(',')`会留下空格, 其实可以用`s.replcae(',', ' ').split()`, 这样就不会有空格了.
 - 如果要调用函数来保存状态, 那就应该定义新的类, 并实现其`__call__`方法, 而不要定义带状态的闭包.
 - 总是应该使用内置的`super()`函数来初始化父类:

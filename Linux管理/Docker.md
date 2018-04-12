@@ -16,7 +16,8 @@ docker search <关键字>
 # 下载镜像
 docker pull <镜像名>
 
-docker run hello-world # Execute Docker image
+# Execute Docker image
+docker run hello-world
 
 docker image ls # List Docker images
 docker image rm <image id> # Remove specified image from this machine

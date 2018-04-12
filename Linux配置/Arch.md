@@ -1,4 +1,4 @@
-# Arch安装配置(BIOS版, 别参考, 有空再填坑)
+# Arch安装配置(BIOS版, 未完工, 勿参考)
 
 - 验证是BIOS还是UEFI
 

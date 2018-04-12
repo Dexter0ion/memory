@@ -26,7 +26,7 @@ sudo resolvconf -u
 vi /etc/resolv.conf
 ```
 
-### intel key
+### intel显卡驱动key
 
 ```bash
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 611B903CAB97EA77
