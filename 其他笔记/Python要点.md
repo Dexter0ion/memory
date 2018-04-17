@@ -1,170 +1,3 @@
-### Python基本数据类型方法
-
-- list(列表)
-
-```python
-# 将元素x添加到列表lst尾部
-lst.append(x)
-# 在下标index处添加元素x, 原来该位置元素及之后元素后移
-lst.insert(index, x)
-# 将列表L中元素添加到列表lst末尾, 原地
-lst.extend(L)
-# 删除并返回下标为index(默认-1)到元素
-lst.pop(index)
-# 删除列表中第一个值为x的元素, 其之后的元素前移
-lst.remove(x)
-# 清空列表, 但保留列表对象
-lst.clear()
-# 返回第一个值为x的元素下标, 不存在则抛出异常
-lst.index(x)
-# 返回元素x在列表中出现的次数
-lst.count(x)
-# 逆转列表, 原地
-lst.reverse()
-# 根据key排序, 可打开逆序开关, 原地
-lst.sort(key=None, reverse=False)
-# 返回列表的浅复制
-lst.copy()
-```
-
-- dict(字典)
-
-```python
-# 返回一个元祖(键, 值)构成的列表
-d.items()
-# 返回字典的键构成的列表
-d.keys()
-# 返回字典的值构成的列表
-d.values()
-# 返回指定键的值, 不存在则返回default的值
-d.get(key, default=None)
-# 返回指定键的值, 不存在则添加键, 值为default
-d.setdefault(key, default=None)
-# 将iterable中的元素做键, 值都为default, 会覆盖已有的键
-d.fromkeys(iterbale, default=None)
-# 把字典dict2中的键值更新到字典d中, 会覆盖已有的键
-d.update(dict2)
-# 弹出指定元素, 并返回值, 如指定default, 则存不存在都返回default, 否则不存在抛出异常
-d.pop(k, default=None)
-# 弹出字典末尾元素, 返回一个二元组
-d.popitem()
-# 清空字典, 但会保留字典对象
-d.clear()
-# 返回一个字典的浅拷贝
-d.copy()
-```
-
-- str(字符串)
-
-```python
-"""查找"""
-# 返回子串sub在s中出现的次数, 可指定范围
-s.count(sub, start=None, end=None)
-# 返回子串sub的索引, 找不到返回-1
-s.find(sub, start=None, end=None)
-# 从右侧开始查找
-s.rfind(sub, start=None, end=None)
-# 与find一样, 只不过找不到会抛出异常
-s.index(sub, start=None, end=None)
-# 从右侧开始查找
-s.rindex(sub, start=None, end=None)
-
-"""替换"""
-# 从左到右替换, count指定最大次数, 非原地
-s.replace(old, new, count=None)
-# 把字符串中的制表符转换为指定长度(默认8)的空格
-s.expandtabs(tabsize=8)
-
-"""删减"""
-# 去除字符串两边的空白字符(空白字符由string.whitespace常量定义), 或删除指定字符
-s.strip()
-# 只删左边
-s.lstrip()
-# 只删右边
-s.rstrip()
-
-"""填充"""
-# 居中对齐, width指定长度, fillchar指定填充字符, 不指定默认空白字符
-s.center(width, fillchar)
-# 左对齐
-s.ljust(width, fillchar)
-# 右对齐
-s.rjust(width, fillchar)
-# 右对齐, 前面用零填充
-s.zfill(width)
-
-"""分切"""
-# 根据sep切割字符串, maxsplit指定最大次数, 返回列表. 默认切割空格
-s.split(sep, maxsplit)
-# 根据行分割, keepends决定是否保留换行符
-s.splitlines(keepends)
-# 将字符串s切割成三部分: sep前, sep, sep后
-s.partition(sep)
-# 从右往左分割
-s.rpartition(sep)
-
-"""连接"""
-# 将可迭代对象(成员必须都是字符串, int也不行)连接成字符串, 成员之间填入s
-s.join(iterable)
-
-"""变形"""
-# 把字符串中所有字母转小写
-s.lower()
-# 把字符串中所有字母转大写
-s.upper()
-# 字符串首字母转大写, 必须是第一个字符
-s.capitalize()
-# 把字符串中所有字母大写转小写, 小写转大写
-s.swapcase()
-# 每个单词的第一个字母转换成大写
-s.title()
-
-"""判定"""
-# 是否都是数字或字母
-s.isalnum()
-# 是否都是字母
-s.isalpha()
-# 是否都是数字
-s.isdigit()
-# 如果包含字母, 是否都是小写
-s.islower()
-# 如果包含字母, 是否都是大写
-s.isupper()
-# 是否只包含空格
-s.isspace()
-# 是否是标题化的(首字母大小, 其他小写)
-s.istitle()
-# 字符串是否可以作为变量名
-s.isidentifer()
-# 字符串是否全部可打印, 包含不可打印字符(如转义字符), 返回False
-s.isprintable()
-
-"""编码"""
-# 编码成bytes
-s.encode(encoding='utf-8', errors='strict')
-```
-
-### Python常用魔法方法
-
-```python
-# 使用str()和print()会调用这个方法
-__str(self)__
-# 使用repr()会调用这个方法, 或交互环境显示
-__repr__(self)
-# 让类实例支持len()函数
-__len__(self)
-# 使类实例能像函数一样被调用
-__call__(self)
-# 让类实例能被下标访问
-__getitem__(self, index)
-# 当用户访问一个不存在的属性时, 可用这个方法定义行为
-__getattr__(self, value)
-# 在`self.name=value`时被调用
-__setattr__(self, name, value)
-# 限制实例到属性, 如不能指定name, age属性
-__slots__ = ('name', 'age')
-```
-
 ### Python值得注意的地方(想到哪写到哪)
 
 - 把生成起转为列表后, 生成器会耗尽(走一轮), 不要把无限大小的生成器转换为列表!
@@ -214,7 +47,7 @@ L2 = L2 + ['a']
 # 前后id改变, 说明返回了一个新列表
 ```
 
-- Python采用基于值的内存管理模式, Python变量中并不直接存放值, 而是存放值到引用. 所以在Python中修改变量值的操作, 并不是直接修改变量的值, 而是修改了变量指向的内存地址(引用), 如`a=a+9或a+=6`, Python解释器限读取变量a原来的值, 然后将其加6, 并将结果存放于内存中, 最后将变量a指向该内存. 如果不同变量赋值为相同值, 这个值在内存中只有一份, 多个变量指向这个内存. **注意: **不同类型的变量到管理方式可能会不同.
+- Python采用基于值的内存管理模式, Python变量中并不直接存放值, 而是存放值到引用. 所以在Python中修改变量值的操作, 并不是直接修改变量的值, 而是修改了变量指向的内存地址(引用), 如`a=a+9或a+=6`, Python解释器限读取变量a原来的值, 然后将其加6, 并将结果存放于内存中, 最后将变量a指向该内存. 如果不同变量赋值为相同值, 这个值在内存中只有一份, 多个变量指向这个内存. **注意: **不同类型的变的管理方式可能会不同.
 - 把两个列表变成一个字典可以:
 
 ```python
@@ -257,3 +90,26 @@ isinstance(B(), A) # True
 - 字典操作: `dict(A=1, B='foo')`, 结果为`{'A':1, 'B':'foo'}`
 - `[.122, 1.]`, 结果为`[0.122, 1.0]`.
 - 一个迷之操作: `t = (1, 2, [30, 40]); t += [50, 60]`, 会抛出异常, 但`t`的元素也改变了. 因为元组虽然不可变, 但若其成员可变, 是能改变其成员值的. 可以用`t[2].extend([50, 60])`避免这个异常. 但是最好不要把可变对象放在元组中.
+- 用切片来逆序列表, 字符串等: `L[::-1]; word[::-1]`.
+- 用`dir(name)`查看模块, 函数或类拥有的属性和方法; 用`help(name)`查看模块, 函数或类帮助.
+- 元编程指在运行时改变程序的行为.
+- 装饰器在加载模块时执行.
+- `from dis import dis; dis(name)`, 可以查看相关内容的Python字节码.
+- 当`count`是数字或任何不可变类型时, `count += 1`和`count = count + 1`一样.
+- `==`运算符比较两个对象的值(对象中保存的数据), 而`is`比较对象的标识(id), 例子:
+
+
+```python
+a = {'name':'hh', 'age': 7}
+b = c
+c = {'name':'hh', 'age': 7}
+
+a == b # True
+a == c # True
+
+a is b # True
+a is c # False
+```
+
+
+
