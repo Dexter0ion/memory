@@ -111,5 +111,10 @@ a is b # True
 a is c # False
 ```
 
+-  Python允许在class中定义一个`__slots__`属性, 来限制该class实例能添加的属性, 用法`__slots__ = ('name', 'age')`, 要注意, 该属性只对当前类其作用, 对继承的子类不起作用, 需重新定义.
+-  `import`查找路径, 先从当前目录下找, 再从`sys.path`中找, 找不到则抛出`ModuleNotFoundError`异常.
+-  每个`.py`文件都有一个`__name__`属性, 当作为脚本运行时, 该属性为`__main__`, 当作为模块导入时, 该属性为模块名.
+-  `dir(__builtins__)`查看所有内置对象名称.
+-  位运算符只能用于整数.
 
 

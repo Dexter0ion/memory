@@ -54,6 +54,8 @@ pip install --upgrade <PACKAGE_NAME>
 pip install "requests==2.8.7" 
 # 安装小于版本2的最新包
 pip install "django<2" 
+# 安装requirements.txt文件中指定的拓展库
+pip install -r requirements.txt
 # 卸载该库
 pip uninstall <PACKAGE_NAME> 
 ```

@@ -147,10 +147,48 @@ s.encode(encoding='utf-8', errors='strict')
 ### Python内置函数
 
 ```python
+# 返回数字x的绝对值或复数x的模
+abs(x)
+# 返回复数
+complex([real[, imag]])
+# 返回x除y的商和余数
+divmod(x, y)
+# 返回x的y次方, 等价于x**y或(x**y)%z
+pow(x, y, z=None)
+# 对x四舍五入, 若不指定小数位数, 则返回整数
+round(x[, 小数位数])
+
+# 把整数x转换成二进制
+bin(x)
+# 把整数x转换成八进制
+oct(x)
+# 把整数x转换成十六进制
+hex(x)
+
+# 返回字符c的Unicode编码
+ord(c)
+# 返回Unicode编码为i的字符
+chr(i)
+
 # 如果iterable的每个元素是真值, 返回True; all([])返回True
 all(iterable)
 # 只要iterable中有元素是真值, 就返回True; any([])返回False
-any(iterbale)
+any(iterable)
+
+max()
+min()
+sum()
+
+sorted()
+reversed()
+
+hasattr(obj)
+getattr(obj, name[, default ])
+delattr(obj, name)
+
+type(obj)
+isinstance(obj, classinfo)
+issubclass(obj, classinfo)
 ```
 
 ### Python常用魔法方法
@@ -170,7 +208,7 @@ __getitem__(self, index)
 __getattr__(self, value)
 # 在`self.name=value`时被调用
 __setattr__(self, name, value)
-# 限制实例到属性, 如不能指定name, age属性
+# 限制实例的属性, 如不能指定name, age属性
 __slots__ = ('name', 'age') 
 ```
 
