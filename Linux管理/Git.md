@@ -16,17 +16,23 @@ ssh-keygen -t rsa -C "zzzzer91@gmail.com"
 ```bash
 # 把当前文件夹变为git可以管理的仓库
 git init
-# 把文件提交的暂存区, "." 代表当前目录下所有文件
+# 把文件提交的暂存区, 可用"."代表当前目录下所有文件
 git add <file_name>
+# 撤销暂存区内容, 不会覆盖工作区
+git reset HEAD <file_name>
 # 把暂存区文件正式提交, 形成一个版本, "xxx" 是本次提交描述
 git commit -m "xxx"
+# 把工作区内容撤销
+# 若暂存区有内容, 则回到暂存区, 暂存区内容还会存在
+# 若暂存区无内容, 则回到版本库
+git checkout -- <file_name>
 # 查看仓库当前状态
 git status
 # 查看哪些内容被修改
 git diff <file_name>
 # 显示版本记录, --pretty=one 代表精简输出
 git log --pretty=one
-# 回到某一版本
+# 回到某一版本, 不建议使用
 git reset --hard HEAD^ # 回到上一版本
 git reset --hard HEAD^^ # 回到上上个版本
 git reset --hard HEAD~100 # 回到上100个版本

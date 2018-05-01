@@ -175,20 +175,25 @@ all(iterable)
 # 只要iterable中有元素是真值, 就返回True; any([])返回False
 any(iterable)
 
-max()
-min()
-sum()
+max(iterable)
+min(iterable)
+sum(iterable)
 
-sorted()
-reversed()
+sorted(iterable)
+reversed(iterable)
 
 hasattr(obj)
-getattr(obj, name[, default ])
+getattr(obj, name[, default])
 delattr(obj, name)
 
 type(obj)
 isinstance(obj, classinfo)
 issubclass(obj, classinfo)
+
+globals()
+locals()
+
+
 ```
 
 ### Python常用魔法方法

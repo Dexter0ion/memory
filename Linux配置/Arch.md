@@ -25,14 +25,20 @@ timedatectl set-ntp true
 - 建立磁盘分区
 
 ```bash
-# 列出磁盘分区
+# 列出磁盘
 fdisk -l
 
+# 创建新分区
+cfdisk /dev/sdX # sdX 为目标磁盘, 一般为sda
+
+# 列出刚创建的磁盘分区
+lsblk
+
 # 格式化分区
-mkfs.ext4 /dev/sda7
+mkfs.ext4 /dev/sdXY # Y指分区号
 
 # 挂载分区
-mount /dev/sda7 /mnt
+mount /dev/sdXY /mnt
 ```
 
 - 安装
@@ -78,7 +84,7 @@ pacman -S intel-ucode
 
 # 安装Bootloader
 pacman -S grub os-prober
-grub-install --target=i386-pc --recheck /dev/sda # 注意这里是整块磁盘, 而不是某个分区
+grub-install --target=i386-pc --recheck /dev/sdX # 注意这里是整块磁盘, 而不是某个分区
 grub-mkconfig -o /boot/grub/grub.cfg
 vim /boot/grub/grub.cfg # 检查入口
 
