@@ -177,9 +177,9 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bashrc
 # 下载python
-pyenv install 3.6.4
+pyenv install 3.x.x
 # 启动环境
-pyenv local 3.6.4
+pyenv local 3.x.x
 # 更新pyenv
 cd $(pyenv root)
 git pull

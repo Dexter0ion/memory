@@ -71,14 +71,15 @@ pip install pipenv
 - 命令
 
 ```shell
-# 创建工作目录
-mkdir pipenv_test
-cd pipenv_test
-
-# pipenv有两个条目: 普通和dev, 根据需求选择安装条目, 见Pipenv文件
-pipenv install # 仅初始化环境, 注意虚拟环境和工作目录分开存放, 见pipenv --venv
+# pipenv有两个条目: 普通和dev, 根据开发需求选择包安装条目
+pipenv install # 仅初始化环境, 如果目录下有Pipfile文件, 则根据其内容生成环境
 pipenv install flask # 初始化环境并在普通条目安装flask
 pipenv install flask --dev # 初始化环境并在dev条目安装flask
+
+# 列出pip包之间依赖关系
+pipenv graph
+# 更新生成Pipfile.lock文件
+pipenv lock
 
 # 显示虚拟环境所在目录
 pipenv --venv
