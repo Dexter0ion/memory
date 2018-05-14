@@ -131,7 +131,7 @@ yaourt -S wps-office ttf-wps-fonts # wps, 奇怪问题, 会导致chrome字体出
 pip install ipython
 pip install jupyter # jupyter notebook
 pip install requests bs4 lxml # 爬虫
-pip install numpy pandas matplotlib # 科学计算
+pip install numpy pandas matplotlib scipy # 科学计算
 pip install pillow # 图像处理
 pip install pymongo # mongodb驱动
 pip install pipenv # 包虚拟环境
